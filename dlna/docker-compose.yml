@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+    dlnaserver:
+        container_name: dlnaserver
+        network_mode: "host"
+        build:
+            context: ./minidlna
+        restart: unless-stopped
+        build:
+            context: ./minidlna
+        volumes:
+            - /home/ubuntu/usbhdd/nas/mediaserver:/media
+            - ./cache:/cache
+            - ./log:/dlnalog
+        environment:
+            VIDEO_DIR1: /media/Videos
+            AUDIO_DIR1: /media/Audio
+            PICTURES_DIR1: /media/Pictures
+        user: "1000:1000"
+
