@@ -10,7 +10,7 @@ services:
         build:
             context: ./minidlna
         volumes:
-            - /home/ubuntu/usbhdd/nas/mediaserver:/media
+            - ./media:/media
             - ./cache:/cache
             - ./log:/dlnalog
         environment:
